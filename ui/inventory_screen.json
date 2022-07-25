@@ -1,0 +1,371 @@
+{
+  "namespace": "crafting",
+
+  // Pages Content
+
+  "base_page_label": {
+    "type": "label",
+    "color": "black",
+    "text": "$rb_page_label",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 2
+  },
+
+  "aot_rb_page_1_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "label@crafting.base_page_label": {
+          "text": "#text",
+          "bindings": [
+            {
+              // #page_number_label, #page_current and #page_total can be
+              // used instead of the $rb_page_label variable by using a binding
+              //
+              // If the pages have similar content you can also abstract
+              // all the content panels by using the variables provided 
+              "binding_type": "view",
+              "source_control_name": "page_content",
+              "source_property_name": "#page_number_label",
+              "target_property_name": "#text"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "aot_rb_page_2_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_3_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_4_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_5_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_6_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_7_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_8_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_9_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_10_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_11_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_12_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_13_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_14_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_15_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_16_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_17_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_18_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_19_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_20_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_21_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_22_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_23_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_24_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_25_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_26_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_27_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+  "aot_rb_page_28_content": { "type": "panel", "controls": [ { "label@crafting.base_page_label": {} } ] },
+
+  // Pages Panel
+
+  "base_rb_page_panel": {
+    "type": "panel",
+    "$rb_page_content|default": "common.empty_panel",
+    "$ignore_prev_btn|default": false,
+    "$ignore_next_btn|default": false,
+    "controls": [
+      {
+        "page_content@$rb_page_content": {
+          "property_bag": {
+            "#page_total": "$rb_a_total",
+            "#page_current": "$rb_a_curr",
+            "#page_number_label": "$rb_page_label"
+          }
+        }
+      },
+      { "prev@crafting.rb_prev_button": {} },
+      { "next@crafting.rb_next_button": {} }
+    ],
+    "$current_page": 1,
+    "$prev_page": "($current_page - 1)",
+    "$next_page": "($current_page + 1)",
+    "$rb_prev_ctrl_nm": "($_rb_name + '_rb_page_' + $prev_page + '_button')",
+    "$rb_prev_tgl_nm": "($_rb_name + '_rb_page' + $prev_page + '_' + $current_page)",
+    "$rb_next_ctrl_nm": "($_rb_name + '_rb_page_' + $next_page + '_button')",
+    "$rb_next_tgl_nm": "($_rb_name + '_rb_page' + $current_page + '_' + $next_page)",
+    "$rb_a_curr": "('§r' + $current_page)",
+    "$rb_a_total": "('§r' + $max_rb_page)",
+    "$rb_page_label": "($rb_a_curr + '/' + $rb_a_total)",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "($_rb_name + '_rb_page_' + $next_page + '_button')",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  // Pages
+
+  "base_rb_page": {
+    "type": "panel",
+    "$next_rb_page": "($current_rb_page + 1)",
+    "$next_rb_page_control": "('crafting.' + $_rb_name + '_rb_page_' + $next_rb_page)",
+    "$z_has_previous_page": "(not ($current_rb_page = 1))",
+    "$z_has_next_page": "(not ($current_rb_page = $max_rb_page))",
+    "bindings": "$rb_bindings",
+    "controls": "$rb_controls",
+    "$rb_controls|default": [
+      {
+        "rb_page@crafting.base_rb_page_panel": {
+          "$rb_page_content": "('crafting.' + $_rb_name + '_rb_page_' + $current_rb_page + '_content')",
+          "$current_page": "$current_rb_page",
+          "$ignore_prev_btn": "(not $z_has_previous_page)",
+          "$ignore_next_btn": "(not $z_has_next_page)"
+        }
+      },
+      { "rb_page_next@$next_rb_page_control": { "ignored": "(not $z_has_next_page)" } }
+    ],
+    "$rb_bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "($_rb_name + '_rb_page_' + $current_rb_page + '_button')",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "variables": [
+      { "requires": "($current_rb_page = 1)", "$rb_bindings": [] },
+      {
+        "requires": "(not $z_has_next_page)",
+        "$rb_controls": [
+          {
+            "rb_page@crafting.base_rb_page_panel": {
+              "$rb_page_content": "('crafting.' + $_rb_name + '_rb_page_' + $current_rb_page + '_content')",
+              "$current_page": "$current_rb_page",
+              "$ignore_prev_btn|default": "(not $z_has_previous_page)",
+              "$ignore_next_btn|default": "(not $z_has_next_page)"
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  "aot_rb_pages@crafting.base_rb_page": {
+    "$_rb_name": "aot",
+    "$current_rb_page": 1,
+    "$max_rb_page": 28
+  },
+
+  "aot_rb_page_2@crafting.base_rb_page": { "$current_rb_page": 2 },
+  "aot_rb_page_3@crafting.base_rb_page": { "$current_rb_page": 3 },
+  "aot_rb_page_4@crafting.base_rb_page": { "$current_rb_page": 4 },
+  "aot_rb_page_5@crafting.base_rb_page": { "$current_rb_page": 5 },
+  "aot_rb_page_6@crafting.base_rb_page": { "$current_rb_page": 6 },
+  "aot_rb_page_7@crafting.base_rb_page": { "$current_rb_page": 7 },
+  "aot_rb_page_8@crafting.base_rb_page": { "$current_rb_page": 8 },
+  "aot_rb_page_9@crafting.base_rb_page": { "$current_rb_page": 9 },
+  "aot_rb_page_10@crafting.base_rb_page": { "$current_rb_page": 10 },
+  "aot_rb_page_11@crafting.base_rb_page": { "$current_rb_page": 11 },
+  "aot_rb_page_12@crafting.base_rb_page": { "$current_rb_page": 12 },
+  "aot_rb_page_13@crafting.base_rb_page": { "$current_rb_page": 13 },
+  "aot_rb_page_14@crafting.base_rb_page": { "$current_rb_page": 14 },
+  "aot_rb_page_15@crafting.base_rb_page": { "$current_rb_page": 15 },
+  "aot_rb_page_16@crafting.base_rb_page": { "$current_rb_page": 16 },
+  "aot_rb_page_17@crafting.base_rb_page": { "$current_rb_page": 17 },
+  "aot_rb_page_18@crafting.base_rb_page": { "$current_rb_page": 18 },
+  "aot_rb_page_19@crafting.base_rb_page": { "$current_rb_page": 19 },
+  "aot_rb_page_20@crafting.base_rb_page": { "$current_rb_page": 20 },
+  "aot_rb_page_21@crafting.base_rb_page": { "$current_rb_page": 21 },
+  "aot_rb_page_22@crafting.base_rb_page": { "$current_rb_page": 22 },
+  "aot_rb_page_23@crafting.base_rb_page": { "$current_rb_page": 23 },
+  "aot_rb_page_24@crafting.base_rb_page": { "$current_rb_page": 24 },
+  "aot_rb_page_25@crafting.base_rb_page": { "$current_rb_page": 25 },
+  "aot_rb_page_26@crafting.base_rb_page": { "$current_rb_page": 26 },
+  "aot_rb_page_27@crafting.base_rb_page": { "$current_rb_page": 27 },
+  "aot_rb_page_28@crafting.base_rb_page": { "$current_rb_page": 28 },
+
+  // RB Textures
+
+  "book_bg": {
+    "type": "image",
+    "texture": "textures/book",
+    "uv": [20, 1],
+    "uv_size": [146, 166],
+    "size": [146, 166],
+    "layer": 0
+  },
+
+  "rb_button_unchecked": {
+    "type": "image",
+    "texture": "textures/recipe_button",
+    "uv": [0, 0],
+    "uv_size": [20, 18],
+    "size": [20, 18],
+    "layer": 2
+  },
+
+  "rb_button_unchecked_hover@crafting.rb_button_unchecked": { "uv": [20, 0] },
+  "rb_button_checked@crafting.rb_button_unchecked": { "uv": [0, 19] },
+  "rb_button_checked_hover@crafting.rb_button_unchecked": { "uv": [20, 19] },
+  
+  "rb_prev": {
+    "type": "image",
+    "texture": "textures/book",
+    "uv": [3, 207],
+    "uv_size": [18, 10],
+    "size": [18, 10],
+    "layer": 2
+  },
+
+  "rb_prev_hov@crafting.rb_prev": { "uv": [26, 207] },
+  "rb_next@crafting.rb_prev": { "uv": [3, 194] },
+  "rb_next_hov@crafting.rb_prev": { "uv": [26, 194] },
+
+  // RB
+
+  "rb@common.root_panel": {
+    "size": [146, 166],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "offset": ["-72px - 88px - 1px", 0],
+    "controls": [
+      { "book_bg@crafting.book_bg": {} },
+      { "aot_rb_pages@crafting.aot_rb_pages": {} }
+    ],
+    "bindings": [
+      {
+        "binding_type": "global",
+        "binding_name": "#is_survival_layout",
+        "binding_name_override": "#surv_visible"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "rb_aot_show",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#rb_visible"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#surv_visible and #rb_visible)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "rb_prev_button@crafting.base_toggle_button": {
+    "focus_container": true,
+    "use_last_focus": true,
+    "ignored": "$ignore_prev_btn",
+    "$tooltip_text": "Previous Page",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [26, 53],
+    "$toggle_group_forced_index": 0,
+    "$toggle_control_name": "$rb_prev_ctrl_nm",
+    "$toggle_name": "$rb_prev_tgl_nm",
+    "$unchecked_bg": "crafting.rb_prev",
+    "$unchecked_hov_bg": "crafting.rb_prev_hov",
+    "$checked_bg": "crafting.rb_prev",
+    "$checked_hov_bg": "crafting.rb_prev_hov"
+  },
+
+  "rb_next_button@crafting.base_toggle_button": {
+    "focus_container": true,
+    "use_last_focus": true,
+    "ignored": "$ignore_next_btn",
+    "$tooltip_text": "Next Page",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [26, 16],
+    "$toggle_group_forced_index": 1,
+    "$toggle_control_name": "$rb_next_ctrl_nm",
+    "$toggle_name": "$rb_next_tgl_nm",
+    "$unchecked_bg": "crafting.rb_next",
+    "$unchecked_hov_bg": "crafting.rb_next_hov",
+    "$checked_bg": "crafting.rb_next",
+    "$checked_hov_bg": "crafting.rb_next_hov"
+  },
+
+  "base_toggle_button_state": {
+    "type": "panel",
+    "controls": [
+      { "bg@$bg_image": {} },
+      {
+        "tooltip@common.hover_text": {
+          "ignored": "(not $hover_state)",
+          "layer": 100,
+          "property_bag": {
+            "#hover_text": "$tooltip_text"
+          }
+        }
+      }
+    ]
+  },
+
+  "base_toggle_button": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [20, 18],
+    "$toggle_group|default": true,
+    "layer": 4,
+    "$tooltip_uncheck|default": "",
+    "$tooltip_check|default": "",
+    "controls": [
+      {
+        "$toggle_control_name@common.toggle": {
+          "radio_toggle_group": "$toggle_group",
+          "$hover_state|default": false,
+          "focus_wrap_enabled": true,
+          "controls": [
+            { "unchecked@crafting.base_toggle_button_state": { "$bg_image": "$unchecked_bg" } },
+            { "unchecked_hover@crafting.base_toggle_button_state": { "$bg_image": "$unchecked_hov_bg", "$hover_state": true, "$tooltip_text|default": "$tooltip_uncheck" } },
+            { "checked@crafting.base_toggle_button_state": { "$bg_image": "$checked_bg" } },
+            { "checked_hover@crafting.base_toggle_button_state": { "$bg_image": "$checked_hov_bg", "$hover_state": true, "$tooltip_text|default": "$tooltip_check" } }
+          ]
+        }
+      }
+    ]
+  },
+
+  "rb_toggle_button@base_toggle_button": {
+    "$toggle_group": false,
+    "$tooltip_uncheck": "Open Recipe Book",
+    "$tooltip_check": "Close Recipe Book",
+    "$toggle_control_name": "rb_aot_show",
+    "$toggle_name": "rb_aot",
+    "$unchecked_bg": "crafting.rb_button_unchecked",
+    "$unchecked_hov_bg": "crafting.rb_button_unchecked_hover",
+    "$checked_bg": "crafting.rb_button_checked",
+    "$checked_hov_bg": "crafting.rb_button_checked_hover"
+  },
+
+  "crafting_panel_top_half": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "rb_button@crafting.rb_toggle_button": {
+              "offset": [4, 35]
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  "recipe_inventory_screen_content": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          { "rb@crafting.rb": {} }
+        ]
+      }
+    ]
+  }
+}

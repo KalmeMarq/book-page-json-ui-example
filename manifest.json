@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "(recipe) book page json ui example",
+    "description": "Made by @KalmeMarq",
+    "uuid": "537fe1f8-5499-489c-bb84-675f8b30e7fb",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 19, 0]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "b75068b0-4d8b-4fab-a2bf-4b4a68942117",
+      "version": [1, 0, 0]
+    }
+  ]
+}
